@@ -53,3 +53,6 @@ RuntimeError: cannot reuse already awaited coroutine
 ```
 
 Note that this issue is not only present with `aiohttp` but with other packages and coroutines. This package is only used as an example.
+
+### Nuitka Bug Tracker
+This issue is tracked at http://bugs.nuitka.net/issue404
