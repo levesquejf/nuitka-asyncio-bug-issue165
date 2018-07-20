@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7600c9079de8b4bda01846dd1d48f3e26fabebdc96bb154da14620a24ca71058"
+            "sha256": "fe025614040ce489116c8ad13a34a0c74708bdfba07a632c77fecd35cee27f79"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -108,9 +108,9 @@
         },
         "idna-ssl": {
             "hashes": [
-                "sha256:1293f030bc608e9aa9cdee72aa93c1521bbb9c7698068c61c9ada6772162b979"
+                "sha256:a933e3bb13da54383f9e8f35dc4f9cb9eb9b3b78c6b36f311254d6d0d92c6c7c"
             ],
-            "version": "==1.0.1"
+            "version": "==1.1.0"
         },
         "multidict": {
             "hashes": [
@@ -131,10 +131,7 @@
             "version": "==4.3.1"
         },
         "nuitka": {
-            "hashes": [
-                "sha256:fe5251fa8adbd4114e98c07854c2a9915405fccb6e9c78a51b7d47b700d2ef48"
-            ],
-            "version": "==0.5.30"
+            "file": "http://nuitka.net/gitweb/?p=Nuitka.git;a=snapshot;h=refs/heads/factory;sf=tgz"
         },
         "pycares": {
             "hashes": [
