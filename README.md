@@ -1,3 +1,5 @@
+# This bug has been fixed in 0.5.32
+
 This repo illustrates a potential bug when using Nuitka with asyncio coroutines.
 
 When a coroutine is cancelled during execution, the Exception should be `CancelledError` (at least it is on native Python 3.6.5). However, when compiled with [Nuitka v0.5.30](http://nuitka.net/), the Exception is `RuntimeError: cannot reuse already awaited coroutine`.
