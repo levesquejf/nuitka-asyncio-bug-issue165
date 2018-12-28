@@ -10,4 +10,4 @@ name = "pypi"
 aiohttp = "*"
 cchardet = "*"
 aiodns = "*"
-"nuitka" = {file = "http://nuitka.net/gitweb/?p=Nuitka.git;a=snapshot;h=refs/heads/factory;sf=tgz"}
+"nuitka" = "*"
