@@ -4,6 +4,8 @@ This repo illustrates a potential bug when using Nuitka with asyncio coroutines.
 
 It can be easily reproduced using Docker containers.
 
+This exact reproducer only works on Python 3.7. It works by changing the Dockerfile-nuitka base image to Python 3.6.8.
+
 ### Running with Python 3.7.2
 
 ```
@@ -11,23 +13,21 @@ It can be easily reproduced using Docker containers.
 ( ... docker building the image ... )
 
 Cancelled
-Exception catched: Ok, time to crash!
-Cancelled
-Exception catched: Ok, time to crash!
+Exception catched: Ok, time to crash! - If you see this, the Nuitka issue is not present.
 ```
 
-### Running on Linux, compiled with Nuitka 0.6.0.6 on Python 3.7.2
+### Running on Linux (Docker), compiled with Nuitka 0.6.1.1 on Python 3.7.2
 
 ```
 # ./run-nuitka.sh
 ( ... docker building the image ... )
 
 Traceback (most recent call last):
-  File "/opt/app/main.dist/main.py", line 73, in <module>
-  File "/opt/app/main.dist/main.py", line 58, in main
+  File "/opt/app/main.dist/main.py", line 50, in <module>
+  File "/opt/app/main.dist/main.py", line 46, in main
   File "/opt/app/main.dist/asyncio/base_events.py", line 584, in run_until_complete
-  File "/opt/app/main.dist/main.py", line 35, in run
-  File "/opt/app/main.dist/main.py", line 50, in writer
+  File "/opt/app/main.dist/main.py", line 24, in run
+  File "/opt/app/main.dist/main.py", line 39, in writer
 RuntimeError: cannot reuse already awaited coroutine
 ```
 
