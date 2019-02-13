@@ -1,43 +1,35 @@
 import asyncio
 
 from concurrent.futures import CancelledError
-from contextlib import asynccontextmanager
-
-
-@asynccontextmanager
-async def async_context():
-    ctx = Obj()
-    yield ctx
 
 
 class Obj:
     async def fail_now(self, *args, **kwargs):
-        raise RuntimeError('Ok, time to crash!')
+        raise RuntimeError('Ok, time to crash! - If you see this, the Nuitka issue is not present.')
 
 
-class Obj2:
+class Task:
     async def run(self):
-        for _ in range(0, 2):
-            async with async_context() as ctx:
-                reader_task = asyncio.ensure_future(self.reader(ctx))
-                writer_task = asyncio.ensure_future(self.writer(ctx))
-                done, pending = await asyncio.wait(
-                    [reader_task, writer_task],
-                    return_when=asyncio.FIRST_COMPLETED,
-                )
+        my_obj = Obj()
+        reader_task = asyncio.ensure_future(self.reader(my_obj))
+        writer_task = asyncio.ensure_future(self.writer(my_obj))
+        done, pending = await asyncio.wait(
+            [reader_task, writer_task],
+            return_when=asyncio.FIRST_COMPLETED,
+        )
 
-                for task in pending:
-                    task.cancel()
-                    try:
-                        await task
-                    except CancelledError:
-                        print('Cancelled')
-                        pass
-                for task in done:
-                    try:
-                        await task
-                    except Exception as e:
-                        print(f'Exception catched: {e}', flush=True)
+        for task in pending:
+            task.cancel()
+            try:
+                await task
+            except CancelledError:
+                print('Cancelled')
+                pass
+        for task in done:
+            try:
+                await task
+            except Exception as e:
+                print(f'Exception catched: {e}', flush=True)
 
     async def reader(self, my_obj):
         await asyncio.sleep(1)
@@ -50,8 +42,8 @@ class Obj2:
 
 def main():
     loop = asyncio.get_event_loop()
-    my_obj = Obj2()
-    loop.run_until_complete(my_obj.run())
+    my_task = Task()
+    loop.run_until_complete(my_task.run())
 
 
 if __name__ == '__main__':
