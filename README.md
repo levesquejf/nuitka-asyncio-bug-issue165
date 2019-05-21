@@ -6,7 +6,7 @@ It can be easily reproduced using Docker containers.
 
 This exact reproducer only works on Python 3.7. It works by changing the Dockerfile-nuitka base image to Python 3.6.8.
 
-### Running with Python 3.7.2
+### Running with Python 3.7.3
 
 ```
 # ./run-native.sh
@@ -16,7 +16,7 @@ Cancelled
 Exception catched: Ok, time to crash! - If you see this, the Nuitka issue is not present.
 ```
 
-### Running on Linux (Docker), compiled with Nuitka 0.6.1.1 on Python 3.7.2
+### Running on Linux (Docker), compiled with Nuitka 0.6.1.1 on Python 3.7.3
 
 ```
 # ./run-nuitka.sh
@@ -30,4 +30,3 @@ Traceback (most recent call last):
   File "/opt/app/main.dist/main.py", line 39, in writer
 RuntimeError: cannot reuse already awaited coroutine
 ```
-
