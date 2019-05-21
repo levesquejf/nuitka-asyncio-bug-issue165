@@ -16,7 +16,7 @@ Cancelled
 Exception catched: Ok, time to crash! - If you see this, the Nuitka issue is not present.
 ```
 
-### Running on Linux (Docker), compiled with Nuitka 0.6.1.1 on Python 3.7.3
+### Running on Linux (Docker), compiled with Nuitka 0.6.3.1 on Python 3.7.3
 
 ```
 # ./run-nuitka.sh
