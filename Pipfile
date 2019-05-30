@@ -5,3 +5,5 @@ name = "pypi"
 
 [packages]
 "nuitka" = "*"
+aiohttp = "*"
+idna-ssl = "*"
